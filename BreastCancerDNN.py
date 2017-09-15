@@ -34,7 +34,7 @@ cols = list(df.columns.values) #Get all of the columns
 for col in cols: #for each column
     only_nums = [] #Initialize array for all the numbers in the array
     for row in df[col].tolist(): #For every row in the column
-        if isinstance(row, (int, long, float, complex)):
+        if isinstance(row, (int, int, float, complex)):
             only_nums.append(row) #Add all the numbers to only_nums
             col_mean = np.mean(only_nums) #Get the average of all the rows
             new_col = df[col].tolist() #Create new column with the existing column
@@ -115,7 +115,7 @@ print("Network Accuracy: {}".format(accuracy))
 
 #Create infinite loop for test inferencing
 while (True):
-    inference_str = raw_input('> ')
+    inference_str = input('> ')
     inference_tensor = inference_str.split(',')
     inference_tensor = np.array(map(int, inference_tensor))
     inference_tensor = inference_tensor.reshape((1,hm_inputs))
